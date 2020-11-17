@@ -13,7 +13,6 @@ public class MainFrame extends JFrame {
     // Константы с исходным размером окна приложения
 
     private static final int WIDTH = 700;
-
     private static final int HEIGHT = 500;
 
     // Массив коэффициентов многочлена
@@ -21,33 +20,24 @@ public class MainFrame extends JFrame {
     private Double[] coefficients;
 
     // Объект диалогового окна для выбора файлов
-
     // Компонент не создаѐтся изначально, т.к. может и не понадобиться
-
     // пользователю если тот не собирается сохранять данные в файл
 
     private JFileChooser fileChooser = null;
 
     // Элементы меню вынесены в поля данных класса, так как ими необходимо
-
     // манипулировать из разных мест
 
     private JMenuItem saveToTextMenuItem;
-
     private JMenuItem saveToGraphicsMenuItem;
-
     private JMenuItem searchValueMenuItem;
-
     private JMenuItem showInfoAboutProgramItem;
 
     // Поля ввода для считывания значений переменных
 
     private JTextField textFieldFrom;
-
     private JTextField textFieldTo;
-
     private JTextField textFieldStep;
-
     private Box hBoxResult;
 
     // Визуализатор ячеек таблицы
@@ -59,8 +49,6 @@ public class MainFrame extends JFrame {
     // Модель данных с результатами вычислений
 
     private GornerTableModel data;
-
-
 
     public MainFrame(Double[] coefficients) {
 
@@ -124,9 +112,7 @@ public class MainFrame extends JFrame {
 
                 if (fileChooser == null) {
 
-                    // Если экземпляр диалогового окна "Открыть файл" ещѐ не создан,
-
-                    // то создать его
+                    // Если экземпляр диалогового окна "Открыть файл" ещѐ не создан,то создать его
 
                     fileChooser = new JFileChooser();
 
@@ -142,14 +128,10 @@ public class MainFrame extends JFrame {
 
                         JFileChooser.APPROVE_OPTION)
 
-                    // Если результат его показа успешный,
-
-                    // сохранить данные в текстовый файл
+                    // Если результат его показа успешный, сохранить данные в текстовый файл
 
                     saveToTextFile(fileChooser.getSelectedFile());
-
             }
-
         };
 
         // Добавить соответствующий пункт подменю в меню "Файл"
@@ -168,18 +150,13 @@ public class MainFrame extends JFrame {
 
                 if (fileChooser == null) {
 
-                    // Если экземпляр диалогового окна
-
-                    // "Открыть файл" ещѐ не создан,
-
-                    // то создать его
+                    // Если экземпляр диалогового окна "Открыть файл" ещѐ не создан,то создать его
 
                     fileChooser = new JFileChooser();
 
                     // и инициализировать текущей директорией
 
                     fileChooser.setCurrentDirectory(new File("."));
-
                 }
 
                 // Показать диалоговое окно
@@ -188,16 +165,13 @@ public class MainFrame extends JFrame {
 
                         JFileChooser.APPROVE_OPTION) ;
 
-                // Если результат его показа успешный,
-
-                // сохранить данные в двоичный файл
+                // Если результат его показа успешный, сохранить данные в двоичный файл
 
                 saveToGraphicsFile(
 
                         fileChooser.getSelectedFile());
 
             }
-
         };
 
         // Добавить соответствующий пункт подменю в меню "Файл"
@@ -229,9 +203,7 @@ public class MainFrame extends JFrame {
                 // Обновить таблицу
 
                 getContentPane().repaint();
-
             }
-
         };
 
         // Добавить действие в меню "Таблица"
@@ -248,10 +220,8 @@ public class MainFrame extends JFrame {
 
             public void actionPerformed(ActionEvent event) {
 
-                JOptionPane.showMessageDialog(MainFrame.this, "Федосеев 7 группа");
-
+                JOptionPane.showMessageDialog(MainFrame.this, "Калашникова Полина, 7 группа");
             }
-
         };
 
         // Добавить соответсвующий пункт подменю в меню "О программе"
@@ -268,15 +238,11 @@ public class MainFrame extends JFrame {
 
         JLabel labelForFrom = new JLabel("X изменяется на интервале от:");
 
-        // Создать текстовое поле для ввода значения длиной в 10 символов
-
-        // со значением по умолчанию 0.0
+        // Создать текстовое поле для ввода значения длиной в 10 символов со значением по умолчанию 0.0
 
         textFieldFrom = new JTextField("0.0", 10);
 
-        // Установить максимальный размер равный предпочтительному, чтобы
-
-        // предотвратить увеличение размера поля ввода
+        // Установить максимальный размер равный предпочтительному, чтобы предотвратить увеличение размера поля ввода
 
         textFieldFrom.setMaximumSize(textFieldFrom.getPreferredSize());
 
@@ -284,15 +250,11 @@ public class MainFrame extends JFrame {
 
         JLabel labelForTo = new JLabel("до:");
 
-        // Создать текстовое поле для ввода значения длиной в 10 символов
-
-        // со значением по умолчанию 1.0
+        // Создать текстовое поле для ввода значения длиной в 10 символов со значением по умолчанию 1.0
 
         textFieldTo = new JTextField("1.0", 10);
 
-        // Установить максимальный размер равный предпочтительному, чтобы
-
-        // предотвратить увеличение размера поля ввода
+        // Установить максимальный размер равный предпочтительному, чтобы предотвратить увеличение размера поля ввода
 
         textFieldTo.setMaximumSize(textFieldTo.getPreferredSize());
 
@@ -306,9 +268,7 @@ public class MainFrame extends JFrame {
 
         textFieldStep = new JTextField("0.1", 10);
 
-        // Установить максимальный размер равный предпочтительному, чтобы
-
-        // предотвратить увеличение размера поля ввода
+        // Установить максимальный размер равный предпочтительному, чтобы предотвратить увеличение размера поля ввода
 
         textFieldStep.setMaximumSize(textFieldStep.getPreferredSize());
 
@@ -373,7 +333,6 @@ public class MainFrame extends JFrame {
         hboxRange.add(Box.createHorizontalGlue());
 
         // Установить предпочтительный размер области равным удвоенному
-
         // минимальному, чтобы при компоновке область совсем не сдавили
 
         hboxRange.setPreferredSize(new Dimension(
@@ -527,7 +486,6 @@ public class MainFrame extends JFrame {
         hboxButtons.add(Box.createHorizontalGlue());
 
         // Установить предпочтительный размер области равным удвоенному минимальному, чтобы при
-
         // компоновке окна область совсем не сдавили
 
         hboxButtons.setPreferredSize(new Dimension(new
@@ -581,7 +539,6 @@ public class MainFrame extends JFrame {
         } catch (Exception e) {
 
             // Исключительную ситуацию "ФайлНеНайден" в данном случае можно не обрабатывать,
-
             // так как мы файл создаѐм, а не открываем для чтения
 
         }
@@ -641,19 +598,15 @@ public class MainFrame extends JFrame {
         } catch (FileNotFoundException e) {
 
             // Исключительную ситуацию "ФайлНеНайден" можно не
-
             // обрабатывать, так как мы файл создаѐм, а не открываем
 
         }
 
     }
 
-
-
     public static void main(String[] args) {
 
         // Если не задано ни одного аргумента командной строки -
-
         // Продолжать вычисления невозможно, коэффиценты неизвестны
 
         if (args.length == 0) {
