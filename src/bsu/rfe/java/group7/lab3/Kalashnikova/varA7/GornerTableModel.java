@@ -91,7 +91,6 @@ public class GornerTableModel extends AbstractTableModel {
 
                 StringBuffer numberStr = new StringBuffer(String.valueOf((int)result));
 
-                numberStr.toString();
                 int a =Integer.parseInt(String.valueOf(numberStr));
 
                 if(a%2==0)
