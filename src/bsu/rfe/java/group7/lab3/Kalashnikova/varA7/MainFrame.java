@@ -40,6 +40,12 @@ public class MainFrame extends JFrame {
     private JTextField textFieldStep;
     private Box hBoxResult;
 
+    // Визуализатор ячеек таблицы
+
+    private GornerTableCellRenderer renderer = new GornerTableCellRenderer();
+
+    // Модель данных с результатами вычислений
+
     private GornerTableModel data;
 
     public MainFrame(Double[] coefficients) {
@@ -369,6 +375,12 @@ public class MainFrame extends JFrame {
 
                     JTable table = new JTable(data);
 
+                    // Установить в качестве визуализатора ячеек для класса Double разработанный визуализатор
+
+                    table.setDefaultRenderer(Double.class,
+
+                            renderer);
+
                     // Установить размер строки таблицы в 30 пикселов
 
                     table.setRowHeight(30);
@@ -526,6 +538,8 @@ public class MainFrame extends JFrame {
         }
 
     }
+
+
 
     protected void saveToTextFile(File selectedFile) {
 
