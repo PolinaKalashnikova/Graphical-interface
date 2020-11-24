@@ -182,7 +182,7 @@ public class MainFrame extends JFrame {
 
         // Создать новое действие по поиску значений многочлена
 
-        Action searchValueAction = new AbstractAction("Найти значение многочлена") {
+        Action searchValueAction = new AbstractAction("Найти значение Х") {
 
             public void actionPerformed(ActionEvent event) {
 
@@ -193,6 +193,8 @@ public class MainFrame extends JFrame {
                         JOptionPane.showInputDialog(MainFrame.this, "Введите значение для поиска",
 
                                 "Поиск значения", JOptionPane.QUESTION_MESSAGE);
+// Установить введенное значение в качестве иголки
+                renderer.setNeedle(value);
 
                 // Обновить таблицу
 
@@ -337,7 +339,7 @@ public class MainFrame extends JFrame {
 
         // Установить область в верхнюю (северную) часть компоновки
 
-        getContentPane().add(hboxRange, BorderLayout.NORTH);
+        getContentPane().add(hboxRange, BorderLayout.SOUTH);
 
         // Создать кнопку "Вычислить"
 
@@ -490,7 +492,7 @@ public class MainFrame extends JFrame {
 
         // Разместить контейнер с кнопками в нижней (южной) области граничной компоновки
 
-        getContentPane().add(hboxButtons, BorderLayout.SOUTH);
+        getContentPane().add(hboxButtons, BorderLayout.NORTH);
 
         // Область для вывода результата пока что пустая
 
